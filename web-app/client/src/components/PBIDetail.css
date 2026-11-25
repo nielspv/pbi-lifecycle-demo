@@ -1,0 +1,295 @@
+.pbi-detail-container {
+  position: relative;
+}
+
+.btn-back {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  background: #667eea;
+  color: white;
+}
+
+.pbi-detail {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pbi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.pbi-header h1 {
+  margin: 0;
+  color: #333;
+  flex: 1;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.status[data-status="draft"] {
+  background: #ffeaa7;
+  color: #d63031;
+}
+
+.status[data-status="ready"] {
+  background: #a8e6cf;
+  color: #27ae60;
+}
+
+.status[data-status="docs_generated"] {
+  background: #b4a7d6;
+  color: #6c5ce7;
+}
+
+.pbi-content section {
+  margin-bottom: 2rem;
+}
+
+.pbi-content h2 {
+  color: #667eea;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.pbi-content h3 {
+  color: #555;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pbi-content p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.pbi-content ul,
+.pbi-content ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.pbi-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.btn-refine {
+  background: #667eea;
+  color: white;
+}
+
+.btn-refine:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.btn-docs {
+  background: #764ba2;
+  color: white;
+}
+
+.btn-docs:hover:not(:disabled) {
+  background: #643a8f;
+}
+
+.btn-action:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.result-section {
+  background: #f5f5ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  border-left: 4px solid #667eea;
+}
+
+.verdict {
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.verdict[data-verdict="Ready"] {
+  background: #d4edda;
+  color: #155724;
+}
+
+.verdict[data-verdict="Not Ready"] {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.checklist-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  border-left: 3px solid #ddd;
+}
+
+.checklist-item[data-status="Met"] {
+  border-left-color: #27ae60;
+  background: #f0fdf4;
+}
+
+.checklist-item[data-status="Missing"] {
+  border-left-color: #d63031;
+  background: #fef2f2;
+}
+
+.checklist-item[data-status="Partial"] {
+  border-left-color: #f39c12;
+  background: #fffbf0;
+}
+
+.criterion {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.item-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: white;
+}
+
+.evidence {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+.questions {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.questions li {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.doc-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn-link {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-link:hover {
+  background: #5568d3;
+}
+
+.doc-preview {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.doc-preview pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 3px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pbi-header {
+    flex-direction: column;
+  }
+
+  .status {
+    margin-top: 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

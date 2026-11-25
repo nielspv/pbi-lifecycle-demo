@@ -1,0 +1,96 @@
+.pbi-list {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pbi-list h2 {
+  color: #667eea;
+  margin-top: 0;
+}
+
+.pbi-list-empty {
+  background: white;
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.pbi-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pbi-card {
+  background: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.pbi-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.pbi-status {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.pbi-status[data-status="draft"] {
+  background: #ffeaa7;
+  color: #d63031;
+}
+
+.pbi-status[data-status="ready"] {
+  background: #a8e6cf;
+  color: #27ae60;
+}
+
+.pbi-status[data-status="docs_generated"] {
+  background: #b4a7d6;
+  color: #6c5ce7;
+}
+
+.pbi-card h3 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.pbi-summary {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.pbi-story {
+  color: #888;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.pbi-meta {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
