@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import path from 'path';
+import fs from 'fs';
 import { initDb, getPBIs, createPBI, getPBIById, updatePBI } from './db.js';
 import { runPBIRefiner, runDocWriter } from './agents.js';
 
@@ -85,6 +87,40 @@ app.post('/api/pbis/:id/generate-docs', async (req, res) => {
       generated_docx: result.docx
     });
     res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Download generated document (Markdown)
+app.get('/api/pbis/:id/download-md', async (req, res) => {
+  try {
+    const pbi = await getPBIById(req.params.id);
+    if (!pbi) return res.status(404).json({ error: 'PBI not found' });
+    if (!pbi.generated_docs) return res.status(404).json({ error: 'No generated documentation' });
+    
+    res.setHeader('Content-Type', 'text/markdown');
+    res.setHeader('Content-Disposition', `attachment; filename="${pbi.title}.md"`);
+    res.send(pbi.generated_docs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Download generated document (DOCX)
+app.get('/api/pbis/:id/download-docx', async (req, res) => {
+  try {
+    const pbi = await getPBIById(req.params.id);
+    if (!pbi) return res.status(404).json({ error: 'PBI not found' });
+    
+    // For demo, we'll serve a placeholder. In production, serve the actual file.
+    const docxPath = path.join(process.cwd(), '..', '..', 'docs', `${pbi.title.replace(/\s+/g, '-')}.docx`);
+    
+    if (fs.existsSync(docxPath)) {
+      res.download(docxPath);
+    } else {
+      res.status(404).json({ error: 'DOCX file not found' });
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

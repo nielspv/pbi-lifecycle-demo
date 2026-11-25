@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './PBIDetail.css';
+import DocumentViewer from './DocumentViewer';
 
 function PBIDetail({ pbi, onBack, onUpdated }) {
   const [loading, setLoading] = useState(false);
   const [refineResult, setRefineResult] = useState(null);
   const [docsResult, setDocsResult] = useState(null);
+  const [showDocViewer, setShowDocViewer] = useState(false);
 
   const runRefiner = async () => {
     try {
@@ -124,12 +126,23 @@ function PBIDetail({ pbi, onBack, onUpdated }) {
                 <a href={docsResult.pr_url} target="_blank" rel="noopener noreferrer" className="btn-link">
                   View Pull Request →
                 </a>
-              </div>
-              <div className="doc-preview">
-                <h3>Generated Markdown</h3>
-                <pre>{docsResult.markdown.substring(0, 500)}...</pre>
+                <button 
+                  className="btn-link btn-view-doc"
+                  onClick={() => setShowDocViewer(true)}
+                >
+                  View Document →
+                </button>
               </div>
             </section>
+          )}
+
+          {showDocViewer && docsResult && (
+            <DocumentViewer 
+              title={pbi.title}
+              markdown={docsResult.markdown}
+              docxFilename={`${pbi.title}.docx`}
+              pbiId={pbi.id}
+            />
           )}
         </div>
       </div>
