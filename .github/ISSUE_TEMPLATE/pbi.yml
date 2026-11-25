@@ -1,0 +1,46 @@
+name: Product Backlog Item
+description: Capture a PBI so it can be assessed against the Definition of Ready
+title: "[PBI] "
+labels: ["pbi", "needs-refinement"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: One-sentence description of the request
+    validations:
+      required: true
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User story
+      description: As a <role>, I want <goal>, so that <benefit>
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: Testable criteria, ideally Given/When/Then
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and risks
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated size
+      options: [XS, S, M, L, XL, Unknown]
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Checklist
+      options:
+        - label: I have described the business value
+          required: true
+        - label: This PBI contains no confidential data
+          required: true
