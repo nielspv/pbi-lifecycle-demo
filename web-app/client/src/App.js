@@ -3,12 +3,13 @@ import axios from 'axios';
 import './App.css';
 import PBIList from './components/PBIList';
 import PBIForm from './components/PBIForm';
+import PBIWizard from './components/PBIWizard';
 import PBIDetail from './components/PBIDetail';
 
 function App() {
   const [pbis, setPbis] = useState([]);
   const [selectedPBI, setSelectedPBI] = useState(null);
-  const [view, setView] = useState('list'); // 'list', 'create', 'detail'
+  const [view, setView] = useState('list'); // 'list', 'create', 'wizard', 'detail'
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -58,6 +59,12 @@ function App() {
           📋 PBIs
         </button>
         <button 
+          className={view === 'wizard' ? 'active' : ''} 
+          onClick={() => setView('wizard')}
+        >
+          🚀 PBI Wizard (IDP)
+        </button>
+        <button 
           className={view === 'create' ? 'active' : ''} 
           onClick={() => setView('create')}
         >
@@ -70,6 +77,13 @@ function App() {
         
         {view === 'list' && !loading && (
           <PBIList pbis={pbis} onSelectPBI={handleSelectPBI} />
+        )}
+        
+        {view === 'wizard' && (
+          <PBIWizard 
+            onPBIComplete={handlePBICreated} 
+            onCancel={() => setView('list')}
+          />
         )}
         
         {view === 'create' && (
